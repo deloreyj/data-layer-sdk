@@ -1,7 +1,7 @@
 {
-  "name": "simple-npm-module",
+  "name": "magento-data-layer-sdk",
   "version": "1.0.0",
-  "description": "This is an NPM module! ",
+  "description": "SDK for working with events on a Magento storefront",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -17,15 +17,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/evargast/simple-npm-module.git"
+    "url": "git+https://github.com/deloreyj/data-layer-sdk"
   },
   "keywords": [],
-  "author": "Eduardo Vargas <eduardo@adobe.com>",
+  "author": "James Delorey <delorey@adobe.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/evargast/simple-npm-module/issues"
+    "url": "https://github.com/deloreyj/data-layer-sdk/issues"
   },
-  "homepage": "https://github.com/evargast/simple-npm-module#readme",
+  "homepage": "https://github.com/deloreyj/data-layer-sdk#readme",
   "devDependencies": {
     "@adobe/adobe-client-data-layer": "1.1.3",
     "@types/jest": "26.0.15",

@@ -11,7 +11,7 @@ The SDK takes the shape of a Typescript class that includes getters and setters 
 Our tests provide numerous examples of usage. But by what of illustration, here is what the syntax looks like.
 
 ```ts
-import mdl from "./index";
+import mdl from "magento-data-layer-sdk";
 /**
  *  Set a context
  *  These setters abstract the string key for the context away from the
