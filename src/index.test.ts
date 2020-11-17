@@ -20,30 +20,30 @@ test("data layer should exist", () => {
 
 test("shopper context", () => {
   const context = generateShopperContext();
-  expect(mdl.contexts.getShopper()).toBeUndefined();
-  mdl.contexts.setShopper(context);
-  expect(mdl.contexts.getShopper()).toEqual(context);
+  expect(mdl.context.getShopper()).toBeUndefined();
+  mdl.context.setShopper(context);
+  expect(mdl.context.getShopper()).toEqual(context);
 });
 
 test("magento extension context", () => {
   const context = generateMagentoExtensionContext();
-  expect(mdl.contexts.getMagentoExtension()).toBeUndefined();
-  mdl.contexts.setMagentoExtension(context);
-  expect(mdl.contexts.getMagentoExtension()).toEqual(context);
+  expect(mdl.context.getMagentoExtension()).toBeUndefined();
+  mdl.context.setMagentoExtension(context);
+  expect(mdl.context.getMagentoExtension()).toEqual(context);
 });
 
 test("page offset context", () => {
   const context = generatePageOffsetsContext();
-  expect(mdl.contexts.getPageOffset()).toBeUndefined();
-  mdl.contexts.setPageOffset(context);
-  expect(mdl.contexts.getPageOffset()).toEqual(context);
+  expect(mdl.context.getPageOffset()).toBeUndefined();
+  mdl.context.setPageOffset(context);
+  expect(mdl.context.getPageOffset()).toEqual(context);
 });
 
 test("product context", () => {
   const context = generateProductContext();
-  expect(mdl.contexts.getProduct()).toBeUndefined();
-  mdl.contexts.setProduct(context);
-  expect(mdl.contexts.getProduct()).toEqual(context);
+  expect(mdl.context.getProduct()).toBeUndefined();
+  mdl.context.setProduct(context);
+  expect(mdl.context.getProduct()).toEqual(context);
 });
 
 test("subscribe to add to cart and publish event", async () => {

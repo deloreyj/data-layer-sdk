@@ -11,30 +11,30 @@ The SDK takes the shape of a Typescript class that includes getters and setters 
 Our tests provide numerous examples of usage. But by what of illustration, here is what the syntax looks like.
 
 ```ts
+import mdl from "./index";
 /**
  *  Set a context
  *  These setters abstract the string key for the context away from the
  *  user and enforces the correct shape and type of the context object
  **/
-MagentoDataLayer.setShopperContext({ shopperId: "loggedIn" });
+mdl.contexts.setShopper({ shopperId: "loggedIn" });
 /**
  *  Get a context
- *  These getters will mostly be used internally, but they'll be available
- *  publicly in case there's a use for them
+ *  Getters are used frequently in event consumers as a way to gather the context data needed by the event consumer. Each event handler receives a reference to the mdl instance as its second argument.
  **/
-MagentoDataLayer.getShopperContext();
+mdl.context.getShopper();
 /**
  *  Publish an event
  *  The current design is to avoid accepting arguments when an event is published.
  *  Any data that should be published with an event should be put into a context and
  *  packaged with the event prior to notifying the subscribers
  **/
-MagentoDataLayer.publishAddToCart();
+mdl.publish.addToCart();
 /**
  *  Subscribe to an event
- *  The event will be strongly typed so the consumer knows what shape of data they will get
+ *  Currently the event only contains the name of the event that was fired
  **/
-MagentoDataLayer.subscribeToAddToCart((event) => {});
+mdl.subscribe.addToCart((event, mdl) => {});
 ```
 
 ## Usage
@@ -47,3 +47,5 @@ npm install
 npm test
 npm run test:watch # Run tests in watch mode for development
 ```
+
+This repo also contains a .vscode file that includes a launch definition to enable debugging tests. To run the tests in debug mode, go to the Run tab (Cmd+Shift+D) and select Debug Jest Tests from the dropdown. Click the play button and your tests will launch in watch mode with the VS Code debugger attached. Now you may set breakpoints in your tests as well as the source files run in the tests.

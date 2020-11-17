@@ -11,7 +11,7 @@ export class MagentoDataLayer {
   /**
    * Methods for interacting with context data
    */
-  public contexts = new MagentoDataLayerContextManager(this);
+  public context = new MagentoDataLayerContextManager(this);
 
   /**
    * Methods for publishing events
