@@ -13,7 +13,7 @@ interface Product {
   countryOfManufacture?: string | null;
   categories?: string[] | null;
   productType?: string | null;
-  pricing: {
+  pricing?: {
     regularPrice: number;
     minimalPrice: number;
     maximalPrice: number;
