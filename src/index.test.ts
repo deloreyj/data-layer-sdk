@@ -1,5 +1,4 @@
 import mdl, { MagentoDataLayer } from "./index";
-import "@adobe/adobe-client-data-layer";
 import {
   generateMagentoExtensionContext,
   generatePageOffsetsContext,
@@ -12,6 +11,12 @@ beforeAll(() => {
   // Forces magento data layer code to be bundled so that
   // 'data layer should exist' test passes
   mdl;
+});
+
+beforeEach(async () => {
+  jest.resetModules();
+  window.adobeDataLayer = [];
+  require("@adobe/adobe-client-data-layer");
 });
 
 test("data layer should exist", () => {
@@ -56,4 +61,15 @@ test("subscribe to add to cart and publish event", async () => {
   expect(eventHandler).not.toHaveBeenCalled();
   mdl.publish.addToCart();
   expect(eventHandler).toHaveBeenCalled();
+});
+
+test("remove event listener works", async () => {
+  const eventHandler = jest.fn();
+  mdl.subscribe.addToCart(eventHandler);
+  expect(eventHandler).not.toHaveBeenCalled();
+  mdl.publish.addToCart();
+  expect(eventHandler).toHaveBeenCalledTimes(1);
+  mdl.unsubscribe.addToCart(eventHandler);
+  mdl.publish.addToCart();
+  expect(eventHandler).toHaveBeenCalledTimes(1);
 });
