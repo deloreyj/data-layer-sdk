@@ -20,19 +20,30 @@ export abstract class MagentoDataLayerBase {
     name: EventName,
     handler: MagentoDataLayerEventHandler
   ): void {
+    const wrappedHandler = (event: EventName) => handler(event, this.mdl);
+
+    this.mdl._handlerMapper.set(handler, wrappedHandler);
     window.adobeDataLayer.push((mdl: AdobeClientDataLayer) => {
-      mdl.addEventListener(name, (event: EventName) =>
-        handler(event, this.mdl)
-      );
+      mdl.addEventListener(name, wrappedHandler);
     });
   }
   // Remove event listener from ACDL
   protected removeEventListener(
     name: EventName,
-    handler: (event: Record<string, unknown>) => void
+    handler: MagentoDataLayerEventHandler
   ): void {
+    if (!this.mdl._handlerMapper.get(handler)) {
+      if (
+        process.env.NODE_ENV === "development" ||
+        process.env.NODE_ENV === "test"
+      )
+        // eslint-disable-next-line no-console
+        console.log("handlers must be registered before they are removed");
+      return;
+    }
     window.adobeDataLayer.push((mdl: AdobeClientDataLayer) => {
-      mdl.removeEventListener(name, handler);
+      mdl.removeEventListener(name, this.mdl._handlerMapper.get(handler));
+      this.mdl._handlerMapper.delete(handler);
     });
   }
   // Push event to ACDL
