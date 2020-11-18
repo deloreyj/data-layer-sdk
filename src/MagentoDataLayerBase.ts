@@ -38,7 +38,9 @@ export abstract class MagentoDataLayerBase {
         process.env.NODE_ENV === "test"
       )
         // eslint-disable-next-line no-console
-        console.log("handlers must be registered before they are removed");
+        console.warn(
+          "You tried to remove a handler that has not been subscribed. This call to removeEventListener did not have any effect."
+        );
       return;
     }
     window.adobeDataLayer.push((mdl: AdobeClientDataLayer) => {
