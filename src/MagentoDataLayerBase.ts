@@ -1,12 +1,14 @@
 import { MagentoDataLayer } from ".";
-import { ContextName } from "./contextNames";
-import { EventName } from "./eventNames";
-import { MagentoDataLayerEventHandler, AdobeClientDataLayer } from "./types";
+import { ContextName } from "./types/contexts";
+import { EventName, MagentoDataLayerEventHandler } from "./types/events";
 
 export abstract class MagentoDataLayerBase {
   protected mdl!: MagentoDataLayer;
   // Set a context on ACDL
   protected setContext<T>(name: ContextName, context: T): void {
+    window.adobeDataLayer.push({
+      [name]: null,
+    });
     window.adobeDataLayer.push({
       [name]: context,
     });
@@ -58,3 +60,5 @@ export abstract class MagentoDataLayerBase {
     });
   }
 }
+
+// Need ability to overwrite vs merge contexts, specifically arrays

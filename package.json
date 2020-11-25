@@ -1,10 +1,13 @@
 {
   "name": "magento-data-layer-sdk",
-  "version": "1.0.0",
+  "version": "0.0.5",
   "description": "SDK for working with events on a Magento storefront",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/@types/index.d.ts",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "prepublish": "npm run build",
@@ -44,9 +47,7 @@
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
   },
-  "dependencies": {
-    "ds-omega-tracker": "0.0.2"
-  },
+  "dependencies": {},
   "peerDependencies": {},
   "husky": {
     "hooks": {

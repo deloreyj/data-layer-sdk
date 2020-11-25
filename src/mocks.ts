@@ -1,3 +1,8 @@
+import { MagentoExtension } from "./types/schemas/magentoExtension";
+import { PageOffset } from "./types/schemas/pageOffset";
+import { Product } from "./types/schemas/product";
+import { Shopper } from "./types/schemas/shopper";
+
 export const generateShopperContext = (
   overrides?: Partial<Shopper>
 ): Shopper => ({ shopperId: "test", ...overrides });

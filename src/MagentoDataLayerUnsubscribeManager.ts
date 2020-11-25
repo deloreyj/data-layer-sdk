@@ -1,9 +1,9 @@
 import { MagentoDataLayerBase } from "./MagentoDataLayerBase";
-import { Omega } from "ds-omega-tracker";
 import {
   ADD_TO_CART,
   CUSTOM_URL,
   INITIATE_CHECKOUT,
+  MagentoDataLayerEventHandler,
   PAGE_ACTIVITY_SUMMARY,
   PAGE_VIEW,
   PRODUCT_PAGE_VIEW,
@@ -11,8 +11,7 @@ import {
   REMOVE_FROM_CART,
   SIGN_IN,
   SIGN_OUT,
-} from "./eventNames";
-import { MagentoDataLayerEventHandler } from "./types";
+} from "./types/events";
 import { MagentoDataLayer } from ".";
 
 export default class MagentoDataLayerUnsubscribeManager extends MagentoDataLayerBase {

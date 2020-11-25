@@ -4,8 +4,12 @@ import {
   PAGE_OFFSET_CONTEXT,
   PRODUCT_CONTEXT,
   SHOPPER_CONTEXT,
-} from "./contextNames";
+} from "./types/contexts";
 import { MagentoDataLayerBase } from "./MagentoDataLayerBase";
+import { MagentoExtension } from "./types/schemas/magentoExtension";
+import { PageOffset } from "./types/schemas/pageOffset";
+import { Product } from "./types/schemas/product";
+import { Shopper } from "./types/schemas/shopper";
 
 export default class MagentoDataLayerContextManager extends MagentoDataLayerBase {
   constructor(mdl: MagentoDataLayer) {

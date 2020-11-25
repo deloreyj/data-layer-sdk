@@ -1,4 +1,4 @@
-interface BillingAddress {
+export interface BillingAddress {
   postalCode: string;
   countryCode: string;
   region?: string;
