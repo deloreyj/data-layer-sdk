@@ -1,4 +1,4 @@
-interface PageOffset {
+export interface PageOffset {
   eventType?: "pageUnload" | "visibilityHidden";
   maxXOffset: number;
   maxYOffset: number;

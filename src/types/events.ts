@@ -1,3 +1,5 @@
+import { MagentoDataLayer } from "..";
+
 export const ADD_TO_CART = "add-to-cart";
 export const REMOVE_FROM_CART = "remove-from-cart";
 export const INITIATE_CHECKOUT = "initiate-checkout";
@@ -20,6 +22,11 @@ export type EventName =
   | typeof REFERRER_URL
   | typeof PAGE_VIEW
   | typeof PRODUCT_PAGE_VIEW;
+
+export type MagentoDataLayerEventHandler = (
+  eventName: EventName,
+  mdl: MagentoDataLayer
+) => void;
 
 /**
  * remove-from-cart

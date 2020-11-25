@@ -1,4 +1,4 @@
-interface Order {
+export interface Order {
   orderId: number;
   appliedCouponCode: string;
   email: string;

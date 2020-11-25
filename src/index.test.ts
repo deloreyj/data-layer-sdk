@@ -16,7 +16,7 @@ import {
   REMOVE_FROM_CART,
   SIGN_IN,
   SIGN_OUT,
-} from "./eventNames";
+} from "./types/events";
 
 beforeAll(() => {
   // Forces magento data layer code to be bundled so that

@@ -1,3 +1,0 @@
-interface Shopper {
-  shopperId: string;
-}
