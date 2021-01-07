@@ -1,3 +1,8 @@
+/*
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
 import { MagentoDataLayerBase } from "./MagentoDataLayerBase";
 import {
   ADD_TO_CART,

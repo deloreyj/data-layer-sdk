@@ -1,3 +1,8 @@
+/*
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
 import { MagentoDataLayer } from ".";
 import { ContextName } from "./types/contexts";
 import { EventName, MagentoDataLayerEventHandler } from "./types/events";

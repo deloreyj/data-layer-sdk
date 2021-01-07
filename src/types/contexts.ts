@@ -1,3 +1,8 @@
+/*
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
 export const SHOPPER_CONTEXT = "shopper-context";
 export const MAGENTO_EXTENSION_CONTEXT = "magento-extension-context";
 export const PAGE_OFFSET_CONTEXT = "page-offset-context";
