@@ -1,7 +1,16 @@
+/*
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+import { CustomUrl } from "./types/schemas/customUrl";
 import { MagentoExtension } from "./types/schemas/magentoExtension";
 import { PageOffset } from "./types/schemas/pageOffset";
 import { Product } from "./types/schemas/product";
+import { ReferrerUrl } from "./types/schemas/referrerUrl";
 import { Shopper } from "./types/schemas/shopper";
+import { ShoppingCart } from "./types/schemas/shoppingCart";
+import { StorefrontInstance } from "./types/schemas/storefrontInstance";
 
 export const generateShopperContext = (
   overrides?: Partial<Shopper>
@@ -32,5 +41,43 @@ export const generateProductContext = (
   productId: 1153,
   sku: "VD04",
   topLevelSku: "VD04",
+  ...overrides,
+});
+
+export const generateCustomUrlContext = (
+  overrides?: Partial<CustomUrl>
+): CustomUrl => ({
+  customUrl: "https://www.test.org",
+  ...overrides,
+});
+
+export const generateReferrerUrlContext = (
+  overrides?: Partial<ReferrerUrl>
+): ReferrerUrl => ({
+  referrerUrl: "https://www.test.org",
+  ...overrides,
+});
+
+export const generateShoppingCartContext = (
+  overrides?: Partial<ShoppingCart>
+): ShoppingCart => ({
+  itemsCount: 5,
+  ...overrides,
+});
+
+export const generateStorefrontInstanceContext = (
+  overrides?: Partial<StorefrontInstance>
+): StorefrontInstance => ({
+  baseCurrencyCode: "USD",
+  environment: "Test",
+  environtmentId: "12345",
+  storeId: 12345,
+  storeName: "Test Store",
+  storeUrl: "https://www.test.org",
+  storeViewCurrencyCode: "CLP",
+  storeViewId: 12345,
+  storeViewName: "Test store view",
+  websiteId: 12345,
+  websiteName: "test website name",
   ...overrides,
 });

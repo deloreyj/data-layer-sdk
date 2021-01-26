@@ -1,9 +1,18 @@
+/*
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
 import mdl, { MagentoDataLayer } from "./index";
 import {
+  generateCustomUrlContext,
   generateMagentoExtensionContext,
   generatePageOffsetsContext,
   generateProductContext,
+  generateReferrerUrlContext,
   generateShopperContext,
+  generateShoppingCartContext,
+  generateStorefrontInstanceContext,
 } from "./mocks";
 import {
   ADD_TO_CART,
@@ -35,6 +44,34 @@ test("data layer should exist", () => {
 });
 
 describe("contexts", () => {
+  test("custom url context", () => {
+    const context = generateCustomUrlContext();
+    expect(mdl.context.getCustomUrl()).toBeUndefined();
+    mdl.context.setCustomUrl(context);
+    expect(mdl.context.getCustomUrl()).toEqual(context);
+  });
+
+  test("referrer url context", () => {
+    const context = generateReferrerUrlContext();
+    expect(mdl.context.getReferrerUrl()).toBeUndefined();
+    mdl.context.setReferrerUrl(context);
+    expect(mdl.context.getReferrerUrl()).toEqual(context);
+  });
+
+  test("shopping cart context", () => {
+    const context = generateShoppingCartContext();
+    expect(mdl.context.getShoppingCart()).toBeUndefined();
+    mdl.context.setShoppingCart(context);
+    expect(mdl.context.getShoppingCart()).toEqual(context);
+  });
+
+  test("storefront instance context", () => {
+    const context = generateStorefrontInstanceContext();
+    expect(mdl.context.getStorefrontInstance()).toBeUndefined();
+    mdl.context.setStorefrontInstance(context);
+    expect(mdl.context.getStorefrontInstance()).toEqual(context);
+  });
+
   test("shopper context", () => {
     const context = generateShopperContext();
     expect(mdl.context.getShopper()).toBeUndefined();

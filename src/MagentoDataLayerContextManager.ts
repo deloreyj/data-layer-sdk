@@ -1,20 +1,47 @@
+/*
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
 import { MagentoDataLayer } from ".";
 import {
   MAGENTO_EXTENSION_CONTEXT,
   PAGE_OFFSET_CONTEXT,
   PRODUCT_CONTEXT,
   SHOPPER_CONTEXT,
+  SHOPPING_CART_CONTEXT,
+  STOREFRONT_INSTANCE_CONTEXT,
+  CUSTOM_URL_CONTEXT,
+  REFERRER_URL_CONTEXT,
 } from "./types/contexts";
 import { MagentoDataLayerBase } from "./MagentoDataLayerBase";
 import { MagentoExtension } from "./types/schemas/magentoExtension";
 import { PageOffset } from "./types/schemas/pageOffset";
 import { Product } from "./types/schemas/product";
 import { Shopper } from "./types/schemas/shopper";
+import { StorefrontInstance } from "./types/schemas/storefrontInstance";
+import { ShoppingCart } from "./types/schemas/shoppingCart";
+import { CustomUrl } from "./types/schemas/customUrl";
+import { ReferrerUrl } from "./types/schemas/referrerUrl";
 
 export default class MagentoDataLayerContextManager extends MagentoDataLayerBase {
   constructor(mdl: MagentoDataLayer) {
     super();
     this.mdl = mdl;
+  }
+
+  /**
+   * Get url context
+   */
+  getCustomUrl(): CustomUrl {
+    return this.getContext<CustomUrl>(CUSTOM_URL_CONTEXT);
+  }
+
+  /**
+   * Set url context
+   */
+  setCustomUrl(context: CustomUrl): void {
+    this.setContext<CustomUrl>(CUSTOM_URL_CONTEXT, context);
   }
 
   /**
@@ -74,13 +101,45 @@ export default class MagentoDataLayerContextManager extends MagentoDataLayerBase
   }
 
   /**
-   * TODO:
-   * magento-extension-context - done
-   * page-offsets-context - done
-   * product-context - done
-   * referrer-url -
-   * shopper-context - done
-   * shopping-cart-context
-   * storefront-instance-context
+   * Get referrer url context
    */
+  getReferrerUrl(): ReferrerUrl {
+    return this.getContext<ReferrerUrl>(REFERRER_URL_CONTEXT);
+  }
+
+  /**
+   * Set referrer url context
+   */
+  setReferrerUrl(context: ReferrerUrl): void {
+    this.setContext<ReferrerUrl>(REFERRER_URL_CONTEXT, context);
+  }
+
+  /**
+   * Get shopping cart context
+   */
+  getShoppingCart(): ShoppingCart {
+    return this.getContext<ShoppingCart>(SHOPPING_CART_CONTEXT);
+  }
+
+  /**
+   * Set shopping cart context
+   */
+  setShoppingCart(context: ShoppingCart): void {
+    this.setContext<ShoppingCart>(SHOPPING_CART_CONTEXT, context);
+  }
+
+  /**
+   * Get storefront instance context
+   */
+  getStorefrontInstance(): StorefrontInstance {
+    return this.getContext<StorefrontInstance>(STOREFRONT_INSTANCE_CONTEXT);
+  }
+
+  /**
+   * Set storefront instance context
+   * @param context
+   */
+  setStorefrontInstance(context: StorefrontInstance): void {
+    this.setContext<StorefrontInstance>(STOREFRONT_INSTANCE_CONTEXT, context);
+  }
 }
